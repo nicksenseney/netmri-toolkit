@@ -1,0 +1,38 @@
+##########################################
+Script: 
+		
+		MOTD Banner Change 
+
+
+Script-Description:
+		
+		'Change the MOTD banner on a Cisco Device' 
+
+Script-Filter:
+
+		$vendor eq "Cisco"
+		
+Script-Variables:
+
+$new_motd	string	"Enter new MOTD banner here"
+		
+##########################################
+
+Action:
+
+		Set MOTD Banner
+	
+Action-Description:
+
+		Select and change MOTD banner
+		
+Action-Commands:
+
+		config terminal
+		no banner motd
+		banner motd ^\r$new_motd\r^\r
+		end
+		wr mem
+		
+#############################################
+	
